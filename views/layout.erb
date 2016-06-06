@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title><%= @title || "Songs By Sinatra" %></title>
+	<meta charset ="utf-8">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+	<header>
+		<h1>Songs by Sinatra</h1>
+		<nav>
+			<ul>
+				<li><a href="/" title="Home">Home</a></li>
+				<li><a href="/about" title="About">About</a></li>
+				<li><a href="/contact" title="Contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="spacer"></div>
+	<section>
+		<%= yield %>
+	</section>
+</body>
+</html>

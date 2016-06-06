@@ -1,0 +1,39 @@
+@font-face {
+    font-family: homizio;
+    src: url(regular.ttf);
+}
+
+body {	
+	background-image: url(legend.gif);
+	background-repeat: no-repeat;
+	background-position: right  top;
+}
+
+header {
+	font-family: homizio;
+}
+
+h1 {
+	font-size: 65px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {	
+	display: inline;
+}
+
+li a {
+	text-decoration: none;
+	color: black;
+	padding-right: 25px;
+	font-size: 25px;
+}
+
+.spacer {
+	height: 25px;
+}
