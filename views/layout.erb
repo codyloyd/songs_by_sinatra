@@ -2,18 +2,19 @@
 <head>
 	<title><%= @title || "Songs By Sinatra" %></title>
 	<meta charset ="utf-8">
-	<link rel="stylesheet" type="text/css" href="reset.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" type="image/png" href="icon.png">
+	<link href="<%= url('/reset.css') %>" rel="stylesheet" type="text/css" />
+	<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+	<link rel="icon" type="image/png" href="<%= url('/icon.png') %>">
 </head>
 <body>
 	<header>
 		<h1>Songs by Sinatra</h1>
 		<nav>
-			<ul>
+			<ul id="nav">
 				<li><a href="/" title="Home">Home</a></li>
 				<li><a href="/about" title="About">About</a></li>
 				<li><a href="/contact" title="Contact">Contact</a></li>
+				<li><a href="/songs" title="Songs">Songs</a></li>
 			</ul>
 		</nav>
 	</header>
