@@ -2,8 +2,9 @@ require 'sinatra'
 require 'sass'
 require 'slim'
 require  './song'
-require 'dm-core'
-require 'dm-migrations'
+# require 'dm-core'
+# require 'dm-migrations'
+require 'data_mapper'
 require 'sinatra/reloader' if development?
 
 configure do
