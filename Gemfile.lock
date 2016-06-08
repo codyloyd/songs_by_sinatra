@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    daemons (1.2.3)
     data_objects (0.10.17)
       addressable (~> 2.1)
     dm-core (1.2.1)
@@ -21,6 +22,7 @@ GEM
       data_objects (= 0.10.17)
     do_sqlite3 (0.10.17)
       data_objects (= 0.10.17)
+    eventmachine (1.2.0.1)
     pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -34,6 +36,10 @@ GEM
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
     temple (0.7.7)
+    thin (1.7.0)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
     tilt (2.0.5)
 
 PLATFORMS
@@ -48,6 +54,7 @@ DEPENDENCIES
   sass
   sinatra
   slim
+  thin
 
 BUNDLED WITH
    1.12.5
