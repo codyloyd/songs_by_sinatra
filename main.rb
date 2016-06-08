@@ -2,6 +2,9 @@ require 'sinatra'
 require 'slim'
 require 'sass'
 require './song'
+require 'sinatra/flash'
+require 'pony'
+require 'sinatra/reloader' if development?
 
 configure do
   enable :sessions
@@ -17,6 +20,42 @@ configure :production do
   DataMapper.setup(:default, ENV['DATABASE_URL'])
 end
 
+helpers do 
+	def css(*stylesheets)
+		stylesheets.map do |stylesheet|
+			      "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"
+		end.join
+	end
+	def current?(path='/')
+		(request.path==path || request.path==path+'/') ? "current" : nil
+	end
+	def set_title
+		@title = "Songs by Sinatra"
+	end
+	def send_message
+		Pony.mail(
+		    :from => params[:name] + "<" + params[:email] + ">",
+		    :to => 'codyloyd@gmail.com',
+		    :subject => params[:name] + " has contacted you",
+		    :body => params[:message],
+		    :port => '587',
+		    :via => :smtp,
+		    :via_options => {
+		      :address 				=> 'smtp.gmail.com',
+		      :port                 => '587',
+		      :enable_starttls_auto => true,
+		      :user_name            => 'codyloyd',
+		      :password             => 'mdcic%i2',
+		      :authentication       => :plain,
+		      :domain               => 'localhost.localdomain'
+		    })
+	end
+end
+
+before do 
+	set_title
+end
+
 get '/' do
 	erb :home
 end
@@ -29,45 +68,6 @@ end
 get '/contact' do
 	@title = "Contact"	
 	erb :contact
-end
-
-get '/songs' do
-	@songs = Song.all
-	erb :songs
-end
-
-post '/songs' do 
-	song = Song.create(params[:song])
-	redirect to("/songs/#{song.id}")
-end
-
-get '/songs/new' do
-	halt(401, 'Not Authorized') unless session[:admin] 
-	@song = Song.new
-	erb :new_song
-end
-
-get '/songs/:id' do
-	@song = Song.get(params[:id])
-	erb :show_song
-end
-
-put '/songs/:id' do
-	song = Song.get(params[:id])
-	song.update(params[:song])
-	redirect to("/songs/#{song.id}")
-end
-
-get '/songs/:id/edit' do 
-	halt(401, 'Not Authorized') unless session[:admin] 
-	@song = Song.get(params[:id])
-	erb :edit_song
-end
-
-delete '/songs/:id' do
-	halt(401, 'Not Authorized') unless session[:admin] 
-	Song.get(params[:id]).destroy
-	redirect to('/songs')
 end
 
 get '/login' do 
@@ -86,6 +86,12 @@ end
 get '/logout' do 
 	session.clear
 	redirect to('/login')	
+end
+
+post '/contact' do
+	send_message
+	flash[:notice] = "Thank you for your message.  I probably won't get back to you."
+	redirect to('/')
 end
 
 not_found do 

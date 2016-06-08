@@ -1,9 +1,8 @@
 <html>
 <head>
-	<title><%= @title || "Songs By Sinatra" %></title>
+	<title><%= @title %></title>
 	<meta charset ="utf-8">
-	<link href="<%= url('/reset.css') %>" rel="stylesheet" type="text/css" />
-	<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+	<%= css :reset, :style %>
 	<link rel="icon" type="image/png" href="<%= url('/icon.png') %>">
 </head>
 <body>
@@ -11,15 +10,16 @@
 		<h1>Songs by Sinatra</h1>
 		<nav>
 			<ul id="nav">
-				<li><a href="/" title="Home">Home</a></li>
-				<li><a href="/about" title="About">About</a></li>
-				<li><a href="/contact" title="Contact">Contact</a></li>
-				<li><a href="/songs" title="Songs">Songs</a></li>
+				<li><a href="/" title="Home" class=<%= current? %>>Home</a></li>
+				<li><a href="/about" title="About" class=<%= current?('/about') %>>About</a></li>
+				<li><a href="/contact" title="Contact" class=<%= current?("/contact") %>>Contact</a></li>
+				<li><a href="/songs" title="Songs" class=<%= current?("/songs") %>>Songs</a></li>
 			</ul>
 		</nav>
 	</header>
 	<div class="spacer"></div>
 	<section>
+		<%= styled_flash %>
 		<%= yield %>
 	</section>
 </body>

@@ -1,16 +1,17 @@
 @font-face {
-    font-family: homizio;
-    src: url(regular.ttf);
+    font-family: flagship;
+    src: url(AbrilFatface-Regular.otf);
 }
 
 body {	
 	background-image: url(legend.gif);
 	background-repeat: no-repeat;
 	background-position: right  top;
+	font-family: flagship;
 }
 
 header {
-	font-family: homizio;
+	font-family: flagship;
 }
 
 h1 {
@@ -20,6 +21,18 @@ h1 {
 h2 {
 	font-size: 48px;
 
+}
+
+h3 {
+	font-size: 32px;
+}
+
+.flash {
+  width: 600px;
+  padding: 5px;
+  font-weight: bold;
+  color: #90C3D4;
+  border: 1px solid #90C3D4;
 }
 
 label {
@@ -33,6 +46,10 @@ ul {
 	padding: 0;
 }
 
+.current {
+	color: #222;
+}
+
 .songs {
 	display: block;
 	list-style-type: none;
@@ -40,14 +57,22 @@ ul {
 	padding: 0;
 }
 
+.songlist a {
+	text-decoration: none;
+	padding-right: 25px;
+	font-size: 25px;
+	color: #222;
+}
+
 nav li {	
 	display: inline;
 }
 
-a {
-	text-decoration: none;
-	color: black;
+
+nav a {
+	text-decoration: none;	
 	padding-right: 25px;
+	color: #aaa;
 	font-size: 25px;
 }
 
