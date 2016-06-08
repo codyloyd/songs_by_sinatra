@@ -4,6 +4,11 @@
 	<meta charset ="utf-8">
 	<%= css :reset, :style %>
 	<link rel="icon" type="image/png" href="<%= url('/icon.png') %>">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/javascripts/application.js"></script>
+	
 </head>
 <body>
 	<header>
@@ -22,5 +27,12 @@
 		<%= styled_flash %>
 		<%= yield %>
 	</section>
+	<footer>
+		<% if authorized? %>
+			<a href="/logout">logout</a>
+		<% else %>
+			<a href="/login">login</a>
+		<% end %>
+	</footer>
 </body>
 </html>

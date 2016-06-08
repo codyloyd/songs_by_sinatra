@@ -38,7 +38,7 @@ post '/songs' do
 end
 
 get '/songs/new' do
-	halt(401, 'Not Authorized') unless session[:admin] 
+	protected!
 	@song = Song.new
 	erb :new_song
 end
@@ -49,6 +49,7 @@ get '/songs/:id' do
 end
 
 put '/songs/:id' do
+	protected!
 	song = find_song
 	if song.update(params[:song])
 		flash[:notice] = "Song successfully updated"
@@ -56,14 +57,14 @@ put '/songs/:id' do
 	redirect to("/songs/#{song.id}")
 end
 
-get '/songs/:id/edit' do 
-	halt(401, 'Not Authorized') unless session[:admin] 
+get '/songs/:id/edit' do
+	protected! 
 	@song = Song.get(params[:id])
 	erb :edit_song
 end
 
 delete '/songs/:id' do
-	halt(401, 'Not Authorized') unless session[:admin] 
+	protected!
 	if find_song.destroy
 		flash[:notice] = "Song Deleted"
 	end
