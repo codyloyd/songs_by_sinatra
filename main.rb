@@ -1,25 +1,3 @@
-# require 'sinatra'
-# require 'sass'
-# require 'slim'
-# require  './song'
-# # require 'dm-core'
-# # require 'dm-migrations'
-# require 'data_mapper'
-# require 'sinatra/reloader' if development?
-
-# configure do
-# 	enable :sessions
-# 	set :username, 'cody'
-# 	set :password, 'password'
-# end
-# configure :development do
-#   DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-# end
-# configure :production do
-#   DataMapper.setup(:default, ENV['DATABASE_URL'])
-# end
-
-
 require 'sinatra'
 require 'slim'
 require 'sass'
