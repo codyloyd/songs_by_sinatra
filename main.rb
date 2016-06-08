@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sass'
 require 'slim'
 require  './song'
+require 'data_mapper'
 require 'sinatra/reloader' if development?
 
 configure do
