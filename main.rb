@@ -45,7 +45,7 @@ helpers do
 		      :port                 => '587',
 		      :enable_starttls_auto => true,
 		      :user_name            => 'codyloyd',
-		      :password             => 'mdcic%i2',
+		      :password             => 'ITS A SECRET',
 		      :authentication       => :plain,
 		      :domain               => 'localhost.localdomain'
 		    })
