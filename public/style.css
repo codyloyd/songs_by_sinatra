@@ -35,6 +35,18 @@ h3 {
   border: 1px solid #90C3D4;
 }
 
+#like p {
+    font-weight: bold;
+}
+
+#like  input {
+    background: url(/like.png) 0 2px no-repeat;
+    border: #333, 1px solid;
+    height: 28px;
+    padding-left: 24px;
+  }
+}
+
 label {
 	display: block;
 	margin-top: 10px;

@@ -3,7 +3,7 @@
 
 <% if @songs.any? %>
 	<ul class="songs">
-		<li class="songlist"> <a href="/songs/new" ><em>*Create a New Song</em></a></li>
+		<li class="songlist"> <a href="/songs/new" class="songlink"><em>*Create a New Song</em></a></li>
 		<% @songs.each do |song| %>
 			<li class="songlist"> <a href="/songs/<%=song.id%>"><%=song.title%></a> </li>
 		<% end %>
