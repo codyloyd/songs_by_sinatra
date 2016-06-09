@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	$("#released_on").datepicker( {changeYear: true, yearRange: "1940:2000"});
-	
+	$("#released_on").datepicker({changeYear: true, yearRange: "1940:2000"});
+
 	return $('#like input').click(function(event) {
     event.preventDefault();
     return $.post($('#like form').attr('action'), function(data) {

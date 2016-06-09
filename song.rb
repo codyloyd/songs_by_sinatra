@@ -68,7 +68,7 @@ post '/songs/:id/like' do
 	@song = find_song
 	@song.likes = @song.likes.next
 	@song.save
-	redirect to('/songs/#{@song.id}') unless request.xhr?
+	redirect to"/songs/#{@song.id}" unless request.xhr?
 	erb :like, :layout => false
 end
 
